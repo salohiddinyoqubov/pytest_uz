@@ -39,7 +39,7 @@ pytest: yaxshiroq dasturlar yozishga yordam beradi
     Issue Tracker <https://github.com/pytest-dev/pytest/issues>
     PDF qo'llanma <https://media.readthedocs.org/pdf/pytest/latest/pytest.pdf>
 
-.. modul:: pytest
+.. module:: pytest
 
 ``pytest`` frameworki kichik, o'qilishi oson testlarni yozishni osonlashtiradi va ilovalar hamda kutubxonalar uchun murakkab funksional testlarni qo'llab-quvvatlashga moslashadi.
 
