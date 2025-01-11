@@ -1,17 +1,17 @@
 .. _get-started:
 
-Get Started
+Boshlash
 ===================================
 
 .. _`getstarted`:
 .. _`installation`:
 
-Install ``pytest``
+``pytest``ni o'rnatish
 ----------------------------------------
 
-``pytest`` requires: Python 3.8+ or PyPy3.
+``pytest`` pytest uchun Python 3.8 yoki undan yuqori versiya yoki PyPy3 talab qilinadi.
 
-1. Run the following command in your command line:
+1. Buyruqlar qatorida quyidagi buyruqni bajaring:
 
 .. code-block:: bash
 
