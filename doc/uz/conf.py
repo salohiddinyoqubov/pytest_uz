@@ -158,7 +158,7 @@ html_css_files = [
     "pytest-custom.css",
 ]
 
-html_title = "pytest documentation"
+html_title = "pytest Qo'llanma"
 html_short_title = f"pytest-{release}"
 
 html_logo = "_static/pytest1.png"
@@ -198,7 +198,7 @@ latex_documents = [
         "contents",
         "pytest.tex",
         "pytest Qo'llanma",
-        "holger krekel, trainer and consultant O'zbek tilida Salohiddin Yoqubov, https://merlinux.eu/",
+        "holger krekel, trainer and consultant. O'zbek tilida Salohiddin Yoqubov, https://merlinux.eu/",
         "manual",
     )
 ]
@@ -226,7 +226,7 @@ texinfo_documents = [
     (
         root_doc,
         "pytest",
-        "pytest Documentation",
+        "pytest Qo'llanma",
         (
             "Holger Krekel@*Benjamin Peterson@*Ronny Pfannschmidt@*Salohiddin Yoqubov@*"
             "Floris Bruynooghe@*others"
