@@ -167,7 +167,7 @@ html_favicon = "img/favicon.png"
 html_use_index = False
 html_show_sourcelink = False
 
-html_baseurl = "https://docs.pytest.org/en/stable/"
+html_baseurl = "https://pytest-uz.readthedocs.io/uz/latest/"
 
 # -- Options for HTML Help output -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
