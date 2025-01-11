@@ -131,10 +131,10 @@ Test funksiyasini “quiet” rejimida ishga tushiring:
 
     ``-q/--quiet`` flagidan foydalanish natijasida qisqa chiqish olinadi.
 
-Bir nechta testlarni sinfda guruhlash
+Bir nechta testlarni class'da guruhlash
 --------------------------------------------------------------
 
-Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni sinfda guruhlashni xohlashingiz mumkin. pytest buni oson qiladi:
+Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni class'da guruhlashni xohlashingiz mumkin. pytest buni oson qiladi:
 
 .. code-block:: python
 
@@ -148,7 +148,7 @@ Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni sinfda guruhlashni x
             x = "salom"
             assert hasattr(x, "check")
 
-``pytest`` barcha ``test_`` bilan boshlanuvchi funksiyalarni aniqlaydi. Sinfni ``Test`` bilan nomlashni unutmang, aks holda sinf o‘tkazib yuboriladi. Modulni quyidagi buyruq orqali ishga tushiring:
+``pytest`` barcha ``test_`` bilan boshlanuvchi funksiyalarni aniqlaydi. Class'ni ``Test`` bilan nomlashni unutmang, aks holda class o‘tkazib yuboriladi. Modulni quyidagi buyruq orqali ishga tushiring:
 
 .. code-block:: pytest
 
@@ -170,13 +170,13 @@ Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni sinfda guruhlashni x
     FAILED test_class.py::TestClass::test_two - AssertionError: assert False
     1 failed, 1 passed in 0.12s
 
-Testlarni sinflarda guruhlash quyidagi sabablar uchun foydali bo‘lishi mumkin:
+Testlarni class'larda guruhlash quyidagi sabablar uchun foydali bo‘lishi mumkin:
 
  * Testlarni tashkil qilish
- * Faqat ushbu sinfdagi testlar uchun fixture’lardan foydalanish
- * Belgilarni sinf darajasida qo‘llash va ularning barcha testlarga tatbiq qilinishi
+ * Faqat ushbu class'dagi testlar uchun fixture’lardan foydalanish
+ * Belgilarni class darajasida qo‘llash va ularning barcha testlarga tatbiq qilinishi
 
-Sinflarda testlarni guruhlaganingizda, har bir test sinfning o‘ziga xos namunasi bilan ishlashini unutmang. Bu testlarni izolyatsiya qilishni ta’minlaydi va yomon amaliyotlarning oldini oladi.
+Class'larda testlarni guruhlaganingizda, har bir test class'ning o‘ziga xos namunasi bilan ishlashini unutmang. Bu testlarni izolyatsiya qilishni ta’minlaydi va yomon amaliyotlarning oldini oladi.
 
 Yana davom ettirish
 -------------------------------------
