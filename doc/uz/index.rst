@@ -1,13 +1,13 @@
 .. _features:
 
-.. yon panel:: **Keyingi ochiq treninglar va tadbirlar**
+.. sidebar:: **Next Open Trainings and Events**
 
-    - `Professional Testing with Python <https://python-academy.com/courses/python_course_testing.html>`_, `Python Academy <https://www.python-academy.com/>`_ orqali (3 kunlik chuqurlashtirilgan trening), **2025-yil 4-6-mart**, Leyptsig (DE) / Uzoqdan (online)
+    - `Professional Testing with Python <https://python-academy.com/courses/python_course_testing.html>`_, via `Python Academy <https://www.python-academy.com/>`_ (3 day in-depth training), **March 4th -- 6th 2025**, Leipzig (DE) / Remote
 
-    Shuningdek, :doc:`oldingi ma'ruzalar va blogpostlarni <talks>` ham ko'ring.
+    Also see :doc:`previous talks and blogposts <talks>`
 
-pytest: yaxshiroq dasturlar yozishga yordam beradi
-==================================================
+pytest: helps you write better programs
+=======================================
 
 .. toctree::
     :hidden:
@@ -19,7 +19,7 @@ pytest: yaxshiroq dasturlar yozishga yordam beradi
     example/index
 
 .. toctree::
-    :caption: Loyihaga oid
+    :caption: About the project
     :hidden:
 
     changelog
@@ -31,28 +31,30 @@ pytest: yaxshiroq dasturlar yozishga yordam beradi
     contact
 
 .. toctree::
-    :caption: Foydali havolalar
+    :caption: Useful links
     :hidden:
 
     pytest @ PyPI <https://pypi.org/project/pytest/>
     pytest @ GitHub <https://github.com/pytest-dev/pytest/>
     Issue Tracker <https://github.com/pytest-dev/pytest/issues>
-    PDF qo'llanma <https://media.readthedocs.org/pdf/pytest/latest/pytest.pdf>
+    PDF Documentation <https://media.readthedocs.org/pdf/pytest/latest/pytest.pdf>
 
 .. module:: pytest
 
-``pytest`` frameworki kichik, o'qilishi oson testlarni yozishni osonlashtiradi va ilovalar hamda kutubxonalar uchun murakkab funksional testlarni qo'llab-quvvatlashga moslashadi.
+The ``pytest`` framework makes it easy to write small, readable tests, and can
+scale to support complex functional testing for applications and libraries.
 
-``pytest`` uchun Python 3.8+ yoki PyPy3 talab etiladi.
 
-**PyPI paketi nomi**: :pypi:`pytest`
+``pytest`` requires: Python 3.8+ or PyPy3.
 
-Masalan
-------------
+**PyPI package name**: :pypi:`pytest`
+
+A quick example
+---------------
 
 .. code-block:: python
 
-    # test_sample.py
+    # content of test_sample.py
     def inc(x):
         return x + 1
 
@@ -61,8 +63,7 @@ Masalan
         assert inc(3) == 5
 
 
-Buni bajarish uchun:
-
+To execute it:
 
 .. code-block:: pytest
 
@@ -87,67 +88,70 @@ Buni bajarish uchun:
     FAILED test_sample.py::test_answer - assert 4 == 5
     ============================ 1 failed in 0.12s =============================
 
-``pytest``'ning batafsil assertion tahlil qilish imkoniyati tufayli faqat oddiy ``assert`` operatorlari ishlatiladi.
-:ref:`Boshlash <getstarted>` bo'limida pytest'dan foydalanishni asosiy ko'rsatmalar bilan tanishing.
+Due to ``pytest``'s detailed assertion introspection, only plain ``assert`` statements are used.
+See :ref:`Get started <getstarted>` for a basic introduction to using pytest.
+
 
 Xususiyatlar
 ------------
 
-- Muvaffaqiyatsiz :ref:`assert operatorlari <assert>` haqida batafsil ma'lumot (``self.assert*`` nomlarini eslab qolish shart emas)
+- Muvaffaqiyatsiz :ref:`assert bayonotlari <assert>` haqida batafsil ma'lumot (``self.assert*`` nomlarini eslab qolish shart emas)
 
 - Test modullari va funksiyalarini :ref:`Avto-aniqlash <test discovery>` imkoniyati
 
 - Kichik yoki parametrli uzoq muddatli test resurslarini boshqarish uchun :ref:`Modulli fixture'lar <fixture>`
 
-- Parallel ravishda testlarni bajarish imkoniyati
+- :ref:`unittest <unittest>` (shu jumladan trial) test to'plamlarini bir zumda bajarish imkoniyati
 
-- Kuchli plagin arxitekturasi orqali yangi imkoniyatlarni qo'shish qulayligi
+- Python 3.8+ yoki PyPy 3
 
-- Yaxshi dokumentatsiya va keng jamoat tomonidan qo'llab-quvvatlanish imkoniyati
+- 1300+ dan ortiq :ref:`tashqi plaginlar <plugin-list>` va rivojlanayotgan jamoa orqali kuchli plagin arxitekturasi
 
-Qo'shimcha ma'lumotlar uchun pytestning :ref:`Rasmiy qo'llanma <reference/index>` bo'limini o'rganing.
 
-Qo'llanma
----------
+Documentation
+-------------
 
-* :ref:`Boshlash <get-started>` - pytest-ni o'rnatish va uning asoslarini bor-yo'g'i yigirma daqiqada o'rganing
-* :ref:`Qanday qilib <how-to>` - qadam-baqadam qo'llanmalar, ko'plab ish holatlari va ehtiyojlarni qamrab oladi
-* :ref:`Ma'lumotlar <reference>` - pytest API to'liq ma'lumotnomasini, plaginlar ro'yxatini va boshqalarni o'z ichiga oladi
-* :ref:`Tushuntirish <explanation>` - asosiy mavzular muhokamasi, yuqori darajadagi savollarga javoblar va boshqa tushuntirishlar
+* :ref:`Get started <get-started>` - install pytest and grasp its basics in just twenty minutes
+* :ref:`How-to guides <how-to>` - step-by-step guides, covering a vast range of use-cases and needs
+* :ref:`Reference guides <reference>` - includes the complete pytest API reference, lists of plugins and more
+* :ref:`Explanation <explanation>` - background, discussion of key topics, answers to higher-level questions
 
-Xatolar/Yozuvlar
-----------------
 
-Iltimos, xatolarni yoki yangi imkoniyatlar takliflarini yuborish uchun `GitHub issues'ga o'ting <https://github.com/pytest-dev/pytest/issues>`_ dan foydalaning.
+Bugs/Requests
+-------------
 
-pytest-ni qo‘llab-quvvatlash
------------------------------
+Please use the `GitHub issue tracker <https://github.com/pytest-dev/pytest/issues>`_ to submit bugs or request features.
 
-`Open Collective`_ — ochiq va shaffof jamiyatlar uchun onlayn moliyalashtirish platformasi.
-Bu platforma mablag' to'plash va moliyaviy ko'rsatkichlarni to'liq shaffof tarzda bo'lishish vositalarini taqdim etadi.
 
-Bu platforma bir martalik yoki oylik xayr-ehsonlarni to'g'ridan-to'g'ri loyihaga yubormoqchi bo'lgan shaxslar va kompaniyalar uchun qulay.
+Support pytest
+--------------
 
-Batafsil ma'lumotni `pytest collective`_ sahifasida topishingiz mumkin.
+`Open Collective`_ is an online funding platform for open and transparent communities.
+It provides tools to raise money and share your finances in full transparency.
+
+It is the platform of choice for individuals and companies that want to make one-time or
+monthly donations directly to the project.
+
+See more details in the `pytest collective`_.
 
 .. _Open Collective: https://opencollective.com
 .. _pytest collective: https://opencollective.com/pytest
 
-pytest uchun muvaffaqiyatsiz test_sample.py::test_answer - assert 4 == 5
-------------------------------------------------------------------------
 
-Tidelift Subscription orqali mavjud.
+pytest for enterprise
+---------------------
 
-pytest va boshqa minglab paketlarning texnik xizmat ko'rsatuvchilari Tidelift bilan hamkorlik qilib,
-tijorat qo‘llab-quvvatlashi va ochiq manba ilovalariga bog‘liq paketlarga xizmat ko‘rsatishni ta’minlashmoqda.
-Bu yordam sizning vaqtingizni tejaydi, xavfni kamaytiradi va kod sifatini yaxshilaydi,
-shu bilan birga aynan o'zingiz ishlatayotgan bog'liqliklarni ishlab chiqayotgan texnik xizmat ko'rsatuvchilarni qo'llab-quvvatlaysiz.
+Tidelift obunasining bir qismi sifatida mavjud.
 
-`Batafsil bilib oling. <https://tidelift.com/subscription/pkg/pypi-pytest?utm_source=pypi-pytest&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_
+The maintainers of pytest and thousands of other packages are working with Tidelift to deliver commercial support and
+maintenance for the open source dependencies you use to build your applications.
+Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use.
 
-Xavfsizlik
-~~~~~~~~~~
+`Learn more. <https://tidelift.com/subscription/pkg/pypi-pytest?utm_source=pypi-pytest&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_
 
-pytest xavfsizlikka oid muammolar bilan hech qachon bog‘liq bo‘lmagan, ammo har qanday holatda
-xavfsizlik kamchiligini xabar qilish uchun `Tidelift xavfsizlik kontaktlari <https://tidelift.com/security>`_ dan foydalaning.
-Tidelift kamchilikni tuzatish va uni oshkor qilish jarayonini muvofiqlashtiradi.
+Security
+~~~~~~~~
+
+pytest has never been associated with a security vulnerability, but in any case, to report a
+security vulnerability please use the `Tidelift security contact <https://tidelift.com/security>`_.
+Tidelift will coordinate the fix and disclosure.
