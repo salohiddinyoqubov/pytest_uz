@@ -18,7 +18,7 @@ PROJECT_ROOT_DIR = Path(__file__).parents[2].resolve()
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "pytest"
-copyright = "2015, holger krekel and pytest-dev team"
+copyright = "2025, holger krekel and pytest-dev team | O'zbek tarjimasi Salohiddin Yoqubov"
 version = full_version.split("+")[0]
 release = ".".join(version.split(".")[:2])
 
