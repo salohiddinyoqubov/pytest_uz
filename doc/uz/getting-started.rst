@@ -6,18 +6,18 @@ Boshlash
 .. _`getstarted`:
 .. _`installation`:
 
-``pytest``ni o'rnatish
+``pytest`` ni o‘rnatish
 ----------------------------------------
 
-``pytest`` pytest uchun Python 3.8 yoki undan yuqori versiya yoki PyPy3 talab qilinadi.
+``pytest`` quyidagilarni talab qiladi: Python 3.8+ yoki PyPy3.
 
-1. Buyruqlar qatorida quyidagi buyruqni bajaring:
+1. Buyruqlar qatorida quyidagi buyruqni ishga tushiring:
 
 .. code-block:: bash
 
     pip install -U pytest
 
-2. Check that you installed the correct version:
+2. To‘g‘ri versiyani o‘rnatganingizni tekshiring:
 
 .. code-block:: bash
 
@@ -26,14 +26,14 @@ Boshlash
 
 .. _`simpletest`:
 
-Create your first test
+Birinchi testni yarating
 ----------------------------------------------------------
 
-Create a new file called ``test_sample.py``, containing a function, and a test:
+``test_sample.py`` nomli yangi fayl yarating, u funksiya va testni o‘z ichiga oladi:
 
 .. code-block:: python
 
-    # content of test_sample.py
+    # test_sample.py mazmuni
     def func(x):
         return x + 1
 
@@ -41,7 +41,7 @@ Create a new file called ``test_sample.py``, containing a function, and a test:
     def test_answer():
         assert func(3) == 5
 
-The test
+Testni ishga tushiring:
 
 .. code-block:: pytest
 
@@ -66,26 +66,25 @@ The test
     FAILED test_sample.py::test_answer - assert 4 == 5
     ============================ 1 failed in 0.12s =============================
 
-The ``[100%]`` refers to the overall progress of running all test cases. After it finishes, pytest then shows a failure report because ``func(3)`` does not return ``5``.
+``[100%]`` barcha test holatlarini ishga tushirish jarayonidagi umumiy progressni bildiradi. Test yakunlangandan so‘ng, pytest ``func(3)`` ``5`` qiymatini qaytarmagani uchun muvaffaqiyatsizlik hisoboti ko‘rsatadi.
 
 .. note::
 
-    You can use the ``assert`` statement to verify test expectations. pytest’s :ref:`Advanced assertion introspection <python:assert>` will intelligently report intermediate values of the assert expression so you can avoid the many names :ref:`of JUnit legacy methods <testcase-objects>`.
+    Test natijalarini tasdiqlash uchun ``assert`` bayonotidan foydalanishingiz mumkin. pytest’ning :ref:`Ilg‘or tasdiq introspektsiyasi <python:assert>` ifoda orasidagi qiymatlarni aqlli tarzda hisobot qiladi va bu orqali :ref:`JUnit usullarining ko‘plab nomlaridan <testcase-objects>` foydalanishdan qochishingiz mumkin.
 
-Run multiple tests
+Bir nechta testlarni ishga tushirish
 ----------------------------------------------------------
 
-``pytest`` will run all files of the form test_*.py or \*_test.py in the current directory and its subdirectories. More generally, it follows :ref:`standard test discovery rules <test discovery>`.
+``pytest`` joriy katalogdagi va uning ostidagi kataloglardagi ``test_*.py`` yoki ``*_test.py`` shaklidagi barcha fayllarni ishga tushiradi. Umuman olganda, u :ref:`standart testlarni aniqlash qoidalariga <test discovery>` amal qiladi.
 
-
-Assert that a certain exception is raised
+Ma’lum bir xatolik qayd etilganini tasdiqlash
 --------------------------------------------------------------
 
-Use the :ref:`raises <assertraises>` helper to assert that some code raises an exception:
+Xatolik qayd etilishini tasdiqlash uchun :ref:`raises <assertraises>` yordamchisidan foydalaning:
 
 .. code-block:: python
 
-    # content of test_sysexit.py
+    # test_sysexit.py mazmuni
     import pytest
 
 
@@ -97,18 +96,17 @@ Use the :ref:`raises <assertraises>` helper to assert that some code raises an e
         with pytest.raises(SystemExit):
             f()
 
-You can also use the context provided by :ref:`raises <assertraises>` to
-assert that an expected exception is part of a raised :class:`ExceptionGroup`:
+:ref:`raises <assertraises>` tomonidan taqdim etilgan kontekstdan foydalanib, :class:`ExceptionGroup` tarkibida kutgan xatolik borligini tasdiqlash mumkin:
 
 .. code-block:: python
 
-    # content of test_exceptiongroup.py
+    # test_exceptiongroup.py mazmuni
     import pytest
 
 
     def f():
         raise ExceptionGroup(
-            "Group message",
+            "Guruh xabari",
             [
                 RuntimeError(),
             ],
@@ -121,7 +119,7 @@ assert that an expected exception is part of a raised :class:`ExceptionGroup`:
         assert excinfo.group_contains(RuntimeError)
         assert not excinfo.group_contains(TypeError)
 
-Execute the test function with “quiet” reporting mode:
+Test funksiyasini “quiet” rejimida ishga tushiring:
 
 .. code-block:: pytest
 
@@ -131,28 +129,26 @@ Execute the test function with “quiet” reporting mode:
 
 .. note::
 
-    The ``-q/--quiet`` flag keeps the output brief in this and following examples.
+    ``-q/--quiet`` flagidan foydalanish natijasida qisqa chiqish olinadi.
 
-Group multiple tests in a class
+Bir nechta testlarni sinfda guruhlash
 --------------------------------------------------------------
 
-.. regendoc:wipe
-
-Once you develop multiple tests, you may want to group them into a class. pytest makes it easy to create a class containing more than one test:
+Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni sinfda guruhlashni xohlashingiz mumkin. pytest buni oson qiladi:
 
 .. code-block:: python
 
-    # content of test_class.py
+    # test_class.py mazmuni
     class TestClass:
         def test_one(self):
-            x = "this"
-            assert "h" in x
+            x = "bu"
+            assert "b" in x
 
         def test_two(self):
-            x = "hello"
+            x = "salom"
             assert hasattr(x, "check")
 
-``pytest`` discovers all tests following its :ref:`Conventions for Python test discovery <test discovery>`, so it finds both ``test_`` prefixed functions. There is no need to subclass anything, but make sure to prefix your class with ``Test`` otherwise the class will be skipped. We can simply run the module by passing its filename:
+``pytest`` barcha ``test_`` bilan boshlanuvchi funksiyalarni aniqlaydi. Sinfni ``Test`` bilan nomlashni unutmang, aks holda sinf o‘tkazib yuboriladi. Modulni quyidagi buyruq orqali ishga tushiring:
 
 .. code-block:: pytest
 
@@ -164,118 +160,32 @@ Once you develop multiple tests, you may want to group them into a class. pytest
     self = <test_class.TestClass object at 0xdeadbeef0001>
 
         def test_two(self):
-            x = "hello"
+            x = "salom"
     >       assert hasattr(x, "check")
     E       AssertionError: assert False
-    E        +  where False = hasattr('hello', 'check')
+    E        +  where False = hasattr('salom', 'check')
 
     test_class.py:8: AssertionError
     ========================= short test summary info ==========================
     FAILED test_class.py::TestClass::test_two - AssertionError: assert False
     1 failed, 1 passed in 0.12s
 
-The first test passed and the second failed. You can easily see the intermediate values in the assertion to help you understand the reason for the failure.
+Testlarni sinflarda guruhlash quyidagi sabablar uchun foydali bo‘lishi mumkin:
 
-Grouping tests in classes can be beneficial for the following reasons:
+ * Testlarni tashkil qilish
+ * Faqat ushbu sinfdagi testlar uchun fixture’lardan foydalanish
+ * Belgilarni sinf darajasida qo‘llash va ularning barcha testlarga tatbiq qilinishi
 
- * Test organization
- * Sharing fixtures for tests only in that particular class
- * Applying marks at the class level and having them implicitly apply to all tests
+Sinflarda testlarni guruhlaganingizda, har bir test sinfning o‘ziga xos namunasi bilan ishlashini unutmang. Bu testlarni izolyatsiya qilishni ta’minlaydi va yomon amaliyotlarning oldini oladi.
 
-Something to be aware of when grouping tests inside classes is that each test has a unique instance of the class.
-Having each test share the same class instance would be very detrimental to test isolation and would promote poor test practices.
-This is outlined below:
-
-.. regendoc:wipe
-
-.. code-block:: python
-
-    # content of test_class_demo.py
-    class TestClassDemoInstance:
-        value = 0
-
-        def test_one(self):
-            self.value = 1
-            assert self.value == 1
-
-        def test_two(self):
-            assert self.value == 1
-
-
-.. code-block:: pytest
-
-    $ pytest -k TestClassDemoInstance -q
-    .F                                                                   [100%]
-    ================================= FAILURES =================================
-    ______________________ TestClassDemoInstance.test_two ______________________
-
-    self = <test_class_demo.TestClassDemoInstance object at 0xdeadbeef0002>
-
-        def test_two(self):
-    >       assert self.value == 1
-    E       assert 0 == 1
-    E        +  where 0 = <test_class_demo.TestClassDemoInstance object at 0xdeadbeef0002>.value
-
-    test_class_demo.py:9: AssertionError
-    ========================= short test summary info ==========================
-    FAILED test_class_demo.py::TestClassDemoInstance::test_two - assert 0 == 1
-    1 failed, 1 passed in 0.12s
-
-Note that attributes added at class level are *class attributes*, so they will be shared between tests.
-
-Request a unique temporary directory for functional tests
---------------------------------------------------------------
-
-``pytest`` provides :std:doc:`Builtin fixtures/function arguments <builtin>` to request arbitrary resources, like a unique temporary directory:
-
-.. code-block:: python
-
-    # content of test_tmp_path.py
-    def test_needsfiles(tmp_path):
-        print(tmp_path)
-        assert 0
-
-List the name ``tmp_path`` in the test function signature and ``pytest`` will lookup and call a fixture factory to create the resource before performing the test function call. Before the test runs, ``pytest`` creates a unique-per-test-invocation temporary directory:
-
-.. code-block:: pytest
-
-    $ pytest -q test_tmp_path.py
-    F                                                                    [100%]
-    ================================= FAILURES =================================
-    _____________________________ test_needsfiles ______________________________
-
-    tmp_path = PosixPath('PYTEST_TMPDIR/test_needsfiles0')
-
-        def test_needsfiles(tmp_path):
-            print(tmp_path)
-    >       assert 0
-    E       assert 0
-
-    test_tmp_path.py:3: AssertionError
-    --------------------------- Captured stdout call ---------------------------
-    PYTEST_TMPDIR/test_needsfiles0
-    ========================= short test summary info ==========================
-    FAILED test_tmp_path.py::test_needsfiles - assert 0
-    1 failed in 0.12s
-
-More info on temporary directory handling is available at :ref:`Temporary directories and files <tmp_path handling>`.
-
-Find out what kind of builtin :ref:`pytest fixtures <fixtures>` exist with the command:
-
-.. code-block:: bash
-
-    pytest --fixtures   # shows builtin and custom fixtures
-
-Note that this command omits fixtures with leading ``_`` unless the ``-v`` option is added.
-
-Continue reading
+Yana davom ettirish
 -------------------------------------
 
-Check out additional pytest resources to help you customize tests for your unique workflow:
+Qo‘shimcha pytest manbalarini ko‘rib chiqing:
 
-* ":ref:`usage`" for command line invocation examples
-* ":ref:`existingtestsuite`" for working with preexisting tests
-* ":ref:`mark`" for information on the ``pytest.mark`` mechanism
-* ":ref:`fixtures`" for providing a functional baseline to your tests
-* ":ref:`plugins`" for managing and writing plugins
-* ":ref:`goodpractices`" for virtualenv and test layouts
+* ":ref:`usage`" - buyruqlar misollari uchun
+* ":ref:`existingtestsuite`" - mavjud testlar bilan ishlash uchun
+* ":ref:`mark`" - ``pytest.mark`` mexanizmi haqida
+* ":ref:`fixtures`" - testlaringiz uchun funktsional asosni ta’minlash
+* ":ref:`plugins`" - plaginlarni boshqarish va yozish uchun
+* ":ref:`goodpractices`" - virtualenv va testlarni tashkil qilish
