@@ -1,37 +1,34 @@
-
 .. _`contact channels`:
 .. _`contact`:
 
-Contact channels
+Aloqa kanallari
 ================
 
-Web
+Veb
 ---
 
-- `pytest issue tracker`_ to report bugs or suggest features.
-- `pytest discussions`_ at GitHub for general questions.
+- `pytest issue tracker`_ orqali xatolarni hisobot qilish yoki yangi funksiyalar taklif qilish.
+- `pytest discussions`_ GitHub'da umumiy savollar uchun.
 - `pytest on stackoverflow.com <http://stackoverflow.com/search?q=pytest>`_
-  to post precise questions with the tag ``pytest``.  New questions will usually
-  be seen by pytest users or developers and answered quickly.
+  aniq savollarni ``pytest`` tegi bilan joylashtirish uchun. Yangi savollar odatda pytest foydalanuvchilari yoki ishlab chiquvchilar tomonidan tezda ko‘riladi va javob beriladi.
 
 Chat
 ----
 
 - `pytest discord server <https://discord.com/invite/pytest-dev>`_
-  for pytest development visibility and general assistance.
+  pytest rivojlanish jarayonini kuzatish va umumiy yordam olish uchun.
 - ``#pytest`` `on irc.libera.chat <ircs://irc.libera.chat:6697/#pytest>`_ IRC
-  channel for random questions (using an IRC client, or `via webchat
-  <https://web.libera.chat/#pytest>`_)
+  kanali tasodifiy savollar uchun (IRC mijozidan yoki `webchat orqali
+  <https://web.libera.chat/#pytest>`_ foydalanishingiz mumkin).
 - ``#pytest`` `on Matrix <https://matrix.to/#/#pytest:matrix.org>`_.
+- Telegram orqali o‘zbek tilidagi yordam: `Salohiddin Yoqubov <https://t.me/biznes_menejer>`_.
 
-Mail
-----
+E-pochta
+-------
 
-- `Testing In Python`_: a mailing list for Python testing tools and discussion.
-- `pytest-dev at python.org`_ a mailing list for pytest specific announcements and discussions.
-- Mail to `core@pytest.org <mailto:core@pytest.org>`_ for topics that cannot be
-  discussed in public. Mails sent there will be distributed among the members
-  in the pytest core team, who can also be contacted individually:
+- `Testing In Python`_: Python sinov vositalari va munozaralari uchun pochta ro‘yxati.
+- `pytest-dev at python.org`_ pytest bilan bog‘liq e'lonlar va muhokamalar uchun pochta ro‘yxati.
+- `core@pytest.org <mailto:core@pytest.org>`_ manziliga ochiq muhokama qilish mumkin bo‘lmagan mavzular uchun yozing. Bu manzilga yuborilgan xatlar pytest asosiy jamoasi a'zolari orasida tarqatiladi, ular bilan shaxsiy ravishda ham bog‘lanishingiz mumkin:
 
   * Bruno Oliveira (:user:`nicoddemus`, `bruno@pytest.org <mailto:bruno@pytest.org>`_)
   * Florian Bruhin (:user:`The-Compiler`, `florian@pytest.org <mailto:florian@pytest.org>`_)
@@ -40,13 +37,12 @@ Mail
   * Ronny Pfannschmidt (:user:`RonnyPfannschmidt`, `ronny@pytest.org <mailto:ronny@pytest.org>`_)
   * Zac Hatfield-Dodds (:user:`Zac-HD`, `zac@pytest.org <mailto:zac@pytest.org>`_)
 
-Other
------
+Boshqa
+------
 
-- The :doc:`contribution guide <contributing>` for help on submitting pull
-  requests to GitHub.
-- Florian Bruhin (:user:`The-Compiler`) offers pytest professional teaching and
-  consulting via `Bruhin Software <https://bruhin.software>`_.
+- GitHub'ga pull request yuborishda yordam olish uchun :doc:`hissa qo'shish qo'llanmasi <contributing>`.
+- Florian Bruhin (:user:`The-Compiler`) pytest bo‘yicha professional o‘qitish va
+  maslahat xizmatlarini `Bruhin Software <https://bruhin.software>`_ orqali taklif qiladi.
 
 .. _`pytest issue tracker`: https://github.com/pytest-dev/pytest/issues
 .. _`pytest discussions`: https://github.com/pytest-dev/pytest/discussions
