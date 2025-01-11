@@ -1,23 +1,23 @@
 .. _get-started:
 
-Get Started
+Boshlash
 ===================================
 
 .. _`getstarted`:
 .. _`installation`:
 
-Install ``pytest``
+``pytest``ni o'rnatish
 ----------------------------------------
 
-``pytest`` requires: Python 3.8+ or PyPy3.
+``pytest`` pytest uchun Python 3.8 yoki undan yuqori versiya yoki PyPy3 talab qilinadi.
 
-1. Run the following command in your command line:
+1. Buyruqlar qatorida quyidagi buyruqni bajaring:
 
 .. code-block:: bash
 
     pip install -U pytest
 
-2. Check that you installed the correct version:
+2. To'g'ri versiyani o'rnatganingizni tekshiring:
 
 .. code-block:: bash
 
@@ -26,10 +26,10 @@ Install ``pytest``
 
 .. _`simpletest`:
 
-Create your first test
+Birinchi testingizni yarating
 ----------------------------------------------------------
 
-Create a new file called ``test_sample.py``, containing a function, and a test:
+Funktsiya va testni o'z ichiga olgan ``test_sample.py`` nomli yangi fayl yarating:
 
 .. code-block:: python
 
@@ -41,7 +41,7 @@ Create a new file called ``test_sample.py``, containing a function, and a test:
     def test_answer():
         assert func(3) == 5
 
-The test
+Test
 
 .. code-block:: pytest
 
@@ -66,22 +66,24 @@ The test
     FAILED test_sample.py::test_answer - assert 4 == 5
     ============================ 1 failed in 0.12s =============================
 
-The ``[100%]`` refers to the overall progress of running all test cases. After it finishes, pytest then shows a failure report because ``func(3)`` does not return ``5``.
+``[100%]`` barcha test holatlarini bajarishning umumiy jarayonini bildiradi. Tugatgandan so'ng, pytest muvaffaqiyatsizlikka uchraganini ko'rsatmoqda. Chunki ``func(3)`` ``5`` qaytarmaydi.
 
 .. note::
 
-    You can use the ``assert`` statement to verify test expectations. pytest’s :ref:`Advanced assertion introspection <python:assert>` will intelligently report intermediate values of the assert expression so you can avoid the many names :ref:`of JUnit legacy methods <testcase-objects>`.
+    Siz ``assert``ni  test natijalarini tekshirish uchun ishlatishingiz mumkin. pytest’ning :ref:`Advanced assertion introspection <python:assert>` xususiyati assert ifodasining oraliq qiymatlarini aqlli tarzda ko'rsatadi, bu esa sizga JUnit eski metodlarining ko'plab nomlaridan qochishga yordam beradi :ref:`<testcase-objects>`.
 
-Run multiple tests
+
+Bir nechta testlarni o'tkazing
 ----------------------------------------------------------
 
-``pytest`` will run all files of the form test_*.py or \*_test.py in the current directory and its subdirectories. More generally, it follows :ref:`standard test discovery rules <test discovery>`.
+``pytest`` joriy katalogdagi va uning ichki kataloglaridagi test_*.py yoki \*_test.py shaklidagi barcha fayllarni ishga tushiradi. Umuman olganda, u :ref:`standart test topish qoidalari <test discovery>`ga amal qiladi.
 
 
-Assert that a certain exception is raised
+
+Ma'lum bir xatoning tashlab ketilganligini ya'ni ``raise``ni tekshiring
 --------------------------------------------------------------
 
-Use the :ref:`raises <assertraises>` helper to assert that some code raises an exception:
+Ba'zi bir kodning xatolarini tashlab ketishni tekshirish uchun :ref:`raises <assertraises>` yordamchisidan foydalaning:
 
 .. code-block:: python
 
@@ -97,8 +99,8 @@ Use the :ref:`raises <assertraises>` helper to assert that some code raises an e
         with pytest.raises(SystemExit):
             f()
 
-You can also use the context provided by :ref:`raises <assertraises>` to
-assert that an expected exception is part of a raised :class:`ExceptionGroup`:
+Siz shuningdek, :ref:`raises <assertraises>` tomonidan taqdim etilgan kontekstdan foydalanib, kutilgan xatoning tashlab ketilgan :class:`ExceptionGroup`ning bir qismi ekanligini tekshirishingiz mumkin:
+
 
 .. code-block:: python
 
@@ -121,7 +123,8 @@ assert that an expected exception is part of a raised :class:`ExceptionGroup`:
         assert excinfo.group_contains(RuntimeError)
         assert not excinfo.group_contains(TypeError)
 
-Execute the test function with “quiet” reporting mode:
+Test funksiyasini “quiet” hisobot rejimi bilan bajarish:
+
 
 .. code-block:: pytest
 
@@ -131,14 +134,14 @@ Execute the test function with “quiet” reporting mode:
 
 .. note::
 
-    The ``-q/--quiet`` flag keeps the output brief in this and following examples.
+    ``-q/--quiet`` flagi ushbu va undan keyingi misollarda chiqishni qisqa tutadi.
 
-Group multiple tests in a class
+Bir nechta testlarni bir klassga guruhlash
 --------------------------------------------------------------
 
 .. regendoc:wipe
 
-Once you develop multiple tests, you may want to group them into a class. pytest makes it easy to create a class containing more than one test:
+Bir nechta testni ishlab chiqqaningizdan so'ng, ularni bir klassga guruhlashni xohlashingiz mumkin. pytest bir nechta testni o'z ichiga olgan klass yaratishni osonlashtiradi:
 
 .. code-block:: python
 
@@ -152,7 +155,7 @@ Once you develop multiple tests, you may want to group them into a class. pytest
             x = "hello"
             assert hasattr(x, "check")
 
-``pytest`` discovers all tests following its :ref:`Conventions for Python test discovery <test discovery>`, so it finds both ``test_`` prefixed functions. There is no need to subclass anything, but make sure to prefix your class with ``Test`` otherwise the class will be skipped. We can simply run the module by passing its filename:
+``pytest`` barcha testlarni :ref:`Python testlarni topish qoidalari <test discovery>`ga rioya qilib aniqlaydi, shuning uchun u ``test_`` bilan boshlanadigan funksiyalarni ham topadi. Subklass yaratishning hojati yo'q, ammo klassni ``Test`` bilan boshlashni unutmang, aks holda klass o‘tkazib yuboriladi. Modulni faqat uning fayl nomini berib ishga tushirishimiz mumkin:
 
 .. code-block:: pytest
 
@@ -174,17 +177,18 @@ Once you develop multiple tests, you may want to group them into a class. pytest
     FAILED test_class.py::TestClass::test_two - AssertionError: assert False
     1 failed, 1 passed in 0.12s
 
-The first test passed and the second failed. You can easily see the intermediate values in the assertion to help you understand the reason for the failure.
+Birinchi test o‘tdi va ikkinchisi muvaffaqiyatsiz bo‘ldi. Siz osongina tekshiruvda oraliq qiymatlarni ko‘rishingiz mumkin, bu esa muvaffaqiyatsizlik sababini tushunishga yordam beradi.
 
-Grouping tests in classes can be beneficial for the following reasons:
+Testlarni klasslarda guruhlash quyidagi sabablarga ko‘ra foydali bo‘lishi mumkin:
 
- * Test organization
- * Sharing fixtures for tests only in that particular class
- * Applying marks at the class level and having them implicitly apply to all tests
+* Testlarni tashkil etish
+* Faqat shu klassda bo‘lgan testlar uchun fixturelarni baham ko‘rish
+* Klass darajasida belgilangan markalarni qo‘llash va ularni barcha testlarga avtomatik tarzda tatbiq etish
 
-Something to be aware of when grouping tests inside classes is that each test has a unique instance of the class.
-Having each test share the same class instance would be very detrimental to test isolation and would promote poor test practices.
-This is outlined below:
+Testlarni klasslar ichida guruhlayotganda e'tibor berish kerak bo‘lgan narsa shundaki, har bir testda klassning noyob instansi mavjud bo‘ladi. Agar har bir test bir xil klass instansiyasini
+bo‘lishsa, bu test izolyatsiyasiga jiddiy zarar yetkazadi va yomon test amaliyotlarini targ‘ib qiladi.
+Buni quyida ko‘rishingiz mumkin:
+
 
 .. regendoc:wipe
 
@@ -221,12 +225,13 @@ This is outlined below:
     FAILED test_class_demo.py::TestClassDemoInstance::test_two - assert 0 == 1
     1 failed, 1 passed in 0.12s
 
-Note that attributes added at class level are *class attributes*, so they will be shared between tests.
+E'tibor bering, klass darajasida qo‘shilgan atributlar *klass atributlari* bo‘lib, ular barcha testlar tomonidan umumiy foydalaniladi.
 
-Request a unique temporary directory for functional tests
+Funktsional testlar uchun noyob vaqtincha direktoriyani so‘rash
+
 --------------------------------------------------------------
 
-``pytest`` provides :std:doc:`Builtin fixtures/function arguments <builtin>` to request arbitrary resources, like a unique temporary directory:
+``pytest`` o'zida :std:doc:`Ichki fixturelar/funksiyalar argumentlari <builtin>`ni taqdim etadi, bu orqali tasodifiy resurslar, masalan, noyob vaqtinchalik direktoriyani so‘rashingiz mumkin:
 
 .. code-block:: python
 
@@ -235,7 +240,8 @@ Request a unique temporary directory for functional tests
         print(tmp_path)
         assert 0
 
-List the name ``tmp_path`` in the test function signature and ``pytest`` will lookup and call a fixture factory to create the resource before performing the test function call. Before the test runs, ``pytest`` creates a unique-per-test-invocation temporary directory:
+Test funktsiyasining imzosi (signature) o'rniga ``tmp_path`` nomini kiritganingizda, ``pytest`` bu resursni yaratish uchun fixture-fabrikasini avtomatik tarzda chaqiradi. Test ishga tushishidan oldin, ``pytest`` har bir test uchun alohida vaqtinchalik direktoriyani yaratadi:
+
 
 .. code-block:: pytest
 
@@ -258,24 +264,26 @@ List the name ``tmp_path`` in the test function signature and ``pytest`` will lo
     FAILED test_tmp_path.py::test_needsfiles - assert 0
     1 failed in 0.12s
 
-More info on temporary directory handling is available at :ref:`Temporary directories and files <tmp_path handling>`.
+Vaqtinchalik direktoriyalarni va fayllarni boshqarish haqida ko'proq ma'lumotni :ref:`Temporary directories and files <tmp_path handling>` bo'limidan olishingiz mumkin.
 
-Find out what kind of builtin :ref:`pytest fixtures <fixtures>` exist with the command:
+Qanday turdagi o'rnatilgan :ref:`pytest fixture'lar <fixtures>` mavjudligini quyidagi buyruq orqali bilib olishingiz mumkin:
 
 .. code-block:: bash
 
     pytest --fixtures   # shows builtin and custom fixtures
 
-Note that this command omits fixtures with leading ``_`` unless the ``-v`` option is added.
+Shuni unutmangki, bu buyruq ``_`` bilan boshlanadigan fixture'larni ko'rsatmaydi, faqat ``-v`` opsiyasi qo'shilganida ular ko'rsatiladi.
 
-Continue reading
+O'qishni davom ettiring
 -------------------------------------
 
-Check out additional pytest resources to help you customize tests for your unique workflow:
+Testlaringizni o'z ish jarayoningizga moslashtirish uchun quyidagi qo'shimcha pytest resurslarini ko'rib chiqing:
 
-* ":ref:`usage`" for command line invocation examples
-* ":ref:`existingtestsuite`" for working with preexisting tests
-* ":ref:`mark`" for information on the ``pytest.mark`` mechanism
-* ":ref:`fixtures`" for providing a functional baseline to your tests
-* ":ref:`plugins`" for managing and writing plugins
-* ":ref:`goodpractices`" for virtualenv and test layouts
+* :ref:`usage` - buyruq satri orqali pytest'ni qanday ishga tushirishni ko'rsatuvchi misollar
+* :ref:`existingtestsuite` - mavjud test to'plamlari bilan ishlash usullari
+* :ref:`mark` - ``pytest.mark`` mexanizmi va uni qanday ishlatish haqida ma'lumot
+* :ref:`fixtures` - testlaringiz uchun zarur bo'lgan resurslarni ishlab chiqish
+* :ref:`plugins` - pytest uchun plagin ishlab chiqish bo'yicha qo'llanma
+* :ref:`goodpractices` - testlar uchun virtualenv va tuzilma bo'yicha yaxshi amaliyotlar
+
+

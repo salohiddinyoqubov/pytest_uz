@@ -18,7 +18,7 @@ PROJECT_ROOT_DIR = Path(__file__).parents[2].resolve()
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "pytest"
-copyright = "2025, holger krekel and pytest-dev team | O'zbek tarjimasi Salohiddin Yoqubov"
+copyright = "2015, holger krekel and pytest-dev team"
 version = full_version.split("+")[0]
 release = ".".join(version.split(".")[:2])
 
@@ -179,16 +179,16 @@ htmlhelp_basename = "pytestdoc"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-manual-page-output
 
 man_pages = [
-    ("how-to/usage", "pytest", "pytest usage", ["holger krekel at merlinux eu"], 1)
+    ("how-to/usage", "pytest", "pytest usage", ["holger krekel at merlinux eu. O'zbek tilida Salohiddin Yoqubov"], 1)
 ]
 
 # -- Options for epub output ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-epub-output
 
 epub_title = "pytest"
-epub_author = "holger krekel at merlinux eu"
-epub_publisher = "holger krekel at merlinux eu"
-epub_copyright = "2013, holger krekel et alii"
+epub_author = "holger krekel at merlinux eu. O'zbek tilida Salohiddin Yoqubov"
+epub_publisher = "holger krekel at merlinux eu. O'zbek tilida Salohiddin Yoqubov"
+epub_copyright = "2025, holger krekel et alii. O'zbek tilida Salohiddin Yoqubov"
 
 # -- Options for LaTeX output --------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
@@ -197,8 +197,8 @@ latex_documents = [
     (
         "contents",
         "pytest.tex",
-        "pytest Documentation",
-        "holger krekel, trainer and consultant, https://merlinux.eu/",
+        "pytest Qo'llanma",
+        "holger krekel, trainer and consultant O'zbek tilida Salohiddin Yoqubov, https://merlinux.eu/",
         "manual",
     )
 ]
@@ -228,7 +228,7 @@ texinfo_documents = [
         "pytest",
         "pytest Documentation",
         (
-            "Holger Krekel@*Benjamin Peterson@*Ronny Pfannschmidt@*"
+            "Holger Krekel@*Benjamin Peterson@*Ronny Pfannschmidt@*Salohiddin Yoqubov@*"
             "Floris Bruynooghe@*others"
         ),
         "pytest",
