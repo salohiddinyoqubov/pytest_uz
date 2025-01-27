@@ -1,16 +1,16 @@
 .. _features:
 
-.. yon panel:: **Keyingi ochiq treninglar va tadbirlar**
+.. sidebar:: **Keyingi ochiq treninglar va tadbirlar**
 
-.. - `Professional Testing with Python <https://python-academy.com/courses/python_course_testing.html>`_, `Python Academy <https://www.python-academy.com/>`_ orqali (3 kunlik chuqurlashtirilgan trening), **2025-yil 4-6-mart**, Leyptsig (DE) / Uzoqdan (online)
+    - `Professional Testing with Python <https://python-academy.com/courses/python_course_testing.html>`_, `Python Academy <https://www.python-academy.com/>`_ orqali (3 kunlik chuqurlashtirilgan trening), **2025-yil 4-6-mart**, Leyptsig (DE) / Uzoqdan (online)
 
-.. Shuningdek, :doc:`oldingi ma'ruzalar va blogpostlarni <talks>` ham ko'ring.
+    Shuningdek, :doc:`oldingi ma'ruzalar va blogpostlarni <talks>` ham ko'ring.
 
 pytest: yaxshiroq dasturlar yozishga yordam beradi
 ==================================================
 
 .. toctree::
-    :hidden:
+    :hidden:    
 
     getting-started
     how-to/index
@@ -47,12 +47,12 @@ pytest: yaxshiroq dasturlar yozishga yordam beradi
 
 **PyPI paketi nomi**: :pypi:`pytest`
 
-Masalan
+Tezkor misol
 ------------
 
 .. code-block:: python
 
-    # test_sample.py
+    # test_sample.py mazmuni
     def inc(x):
         return x + 1
 
@@ -60,9 +60,7 @@ Masalan
     def test_answer():
         assert inc(3) == 5
 
-
-Buni bajarish uchun:
-
+Ishga tushirish:
 
 .. code-block:: pytest
 
@@ -87,49 +85,38 @@ Buni bajarish uchun:
     FAILED test_sample.py::test_answer - assert 4 == 5
     ============================ 1 failed in 0.12s =============================
 
-``pytest``'ning batafsil assertion tahlil qilish imkoniyati tufayli faqat oddiy ``assert`` operatorlari ishlatiladi.
-:ref:`Boshlash <getstarted>` bo'limida pytest'dan foydalanishni asosiy ko'rsatmalar bilan tanishing.
-
+``pytest``'ning batafsil assertion tahlili tufayli faqat oddiy ``assert`` operatorlari ishlatiladi.
+:ref:`Boshlash <getstarted>` bo'limida pytest'dan foydalanish asoslari bilan tanishishingiz mumkin.
 
 Xususiyatlar
 ------------
 
 - Muvaffaqiyatsiz :ref:`assert bayonotlari <assert>` haqida batafsil ma'lumot (``self.assert*`` nomlarini eslab qolish shart emas)
-
-- Test modullari va funksiyalarini :ref:`Avto-aniqlash <test discovery>` imkoniyati
-
-- Kichik yoki parametrli uzoq muddatli test resurslarini boshqarish uchun :ref:`Modulli fixture'lar <fixture>`
-
-- :ref:`unittest <unittest>` (shu jumladan trial) test to'plamlarini bir zumda bajarish imkoniyati
-
+- Test modullari va funksiyalarini :ref:`Avto-topish <test discovery>` imkoniyati
+- :ref:`Modulli fixture'lar <fixture>` - kichik yoki parametrli uzoq muddatli test resurslarini boshqarish
+- :ref:`unittest <unittest>` (shu jumladan trial) test to'plamlarini darhol ishga tushirish
 - Python 3.8+ yoki PyPy 3
-
-- 1300+ dan ortiq :ref:`tashqi plaginlar <plugin-list>` va rivojlanayotgan jamoa orqali kuchli plagin arxitekturasi
-
+- 1300+ dan ortiq :ref:`tashqi plaginlar <plugin-list>` va rivojlanayotgan jamoa bilan kuchli plagin arxitekturasi
 
 Qo'llanma
-----------
+---------
 
-* :ref:`Boshlash <get-started>` - pytest-ni o'rnating va uning asoslarini atigi yigirma daqiqada o'rganing
-* :ref:`Qanday qilib <how-to>` - qadam-baqadam qo'llanmalar, turli ish holatlari va ehtiyojlarni qamrab oladi
-* :ref:`Ma'lumotlar <reference>` - pytest API to'liq ma'lumotnomasini, plaginlar ro'yxatini va boshqalarni o'z ichiga oladi
-* :ref:`Tushuntirish <explanation>` - asosiy mavzularni tushuntirish, yuqori darajadagi savollarga javoblar
+* :ref:`Boshlash <get-started>` - pytest-ni o'rnating va asoslarini 20 daqiqada o'rganing
+* :ref:`Qanday qilib <how-to>` - turli ish holatlari uchun qadam-baqadam qo'llanmalar
+* :ref:`Ma'lumotnoma <reference>` - pytest API to'liq ma'lumotnomasi va plaginlar ro'yxati
+* :ref:`Tushuntirishlar <explanation>` - asosiy tushunchalar va yuqori darajadagi savollarga javoblar
 
+Xatolar/So'rovlar
+-----------------
 
-Xatolar/Talablar
-----------------
-
-Iltimos, xatolarni yuborish yoki xususiyatlar so'rash uchun `GitHub issue tracker <https://github.com/pytest-dev/pytest/issues>`_ dan foydalaning.
+Xatolarni bildirish yoki yangi xususiyatlarni so'rash uchun `GitHub issue tracker <https://github.com/pytest-dev/pytest/issues>`_ dan foydalaning.
 
 pytest-ni qo'llab-quvvatlash
 ----------------------------
 
-`Open Collective`_ — ochiq va shaffof jamiyatlar uchun onlayn moliyalashtirish platformasi.
-Bu platforma mablag' to'plash va moliyaviy ko'rsatkichlarni to'liq shaffof tarzda bo'lishish vositalarini taqdim etadi.
+`Open Collective`_ - ochiq manba loyihalari uchun shaffof moliyalashtirish platformasi. Platforma bir martalik yoki oylik xayr-ehsonlar orqali loyihani qo'llab-quvvatlash imkonini beradi.
 
-Bu platforma bir martalik yoki oylik xayr-ehsonlarni to'g'ridan-to'g'ri loyihaga yubormoqchi bo'lgan shaxslar va kompaniyalar uchun qulay.
-
-Batafsil ma'lumotni `pytest collective`_ sahifasida topishingiz mumkin.
+Batafsil ma'lumot: `pytest collective`_
 
 .. _Open Collective: https://opencollective.com
 .. _pytest collective: https://opencollective.com/pytest
@@ -137,20 +124,13 @@ Batafsil ma'lumotni `pytest collective`_ sahifasida topishingiz mumkin.
 pytest Biznes uchun
 --------------------
 
-Tidelift obunasining bir qismi sifatida mavjud.
+Tidelift obunasi tarkibida mavjud.
 
-pytest va boshqa minglab paketlarni boshqaruvchi mutaxassislar Tidelift bilan hamkorlik qilib,
-ochiq manba bog'liqliklarining tijorat qo'llab-quvvatlashi va texnik xizmat ko'rsatishni ta'minlashmoqda.
-Bu biznesingiz uchun vaqtni tejash, xavfni kamaytirish va kod sifatini yaxshilash imkonini beradi,
-shu bilan birga aynan biznesingizda foydalanayotgan bog'liqliklaringizni ishlab chiqayotgan texnik xizmat ko'rsatuvchilarga moliyaviy qo'llab-quvvatlashni ta'minlaydi.
+pytest va minglab boshqa paketlarning qo'llab-quvvatlovchilari Tidelift bilan hamkorlikda tijorat dasturlaringiz uchun ochiq manba bog'liqliklarini boshqaradi. Xavfni kamaytiring, kod sifatini oshiring va ishlab chiquvchilarni qo'llab-quvvatlang.
 
-
-`Batafsil bilib oling. <https://tidelift.com/subscription/pkg/pypi-pytest?utm_source=pypi-pytest&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_
+`Batafsil ma'lumot <https://tidelift.com/subscription/pkg/pypi-pytest?utm_source=pypi-pytest&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_
 
 Xavfsizlik
 ~~~~~~~~~~
 
-pytest hech qachon xavfsizlik zaifliklari bilan bog'liq bo'lmagan, ammo har qanday xavfsizlik muammosi yuzaga kelsa,
-iltimos, xavfsizlik zaifliklarini xabar qilish uchun `Tidelift xavfsizlik aloqasi <https://tidelift.com/security>`_ dan foydalaning.
-Tidelift ushbu muammoni bartaraf etish va uning oshkor qilinishini samarali tarzda muvofiqlashtiradi.
-
+pytest hech qachon xavfsizlik zaifliklari bilan bog'liq bo'lmagan. Xavfsizlik muammolarini `Tidelift xavfsizlik aloqasi <https://tidelift.com/security>`_ orqali xabar qiling. Tidelift bartaraf etish va oshkor qilishni muvofiqlashtiradi.

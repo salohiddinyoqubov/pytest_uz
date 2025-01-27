@@ -6,18 +6,18 @@ Boshlash
 .. _`getstarted`:
 .. _`installation`:
 
-``pytest`` ni o‘rnatish
+``pytest``ni o'rnatish
 ----------------------------------------
 
 ``pytest`` quyidagilarni talab qiladi: Python 3.8+ yoki PyPy3.
 
-1. Buyruqlar qatorida quyidagi buyruqni ishga tushiring:
+1. Buyruqlar qatorida quyidagi buyruqni bajaring:
 
 .. code-block:: bash
 
     pip install -U pytest
 
-2. To‘g‘ri versiyani o‘rnatganingizni tekshiring:
+2. To'g'ri versiyani o'rnatganingizni tekshiring:
 
 .. code-block:: bash
 
@@ -29,7 +29,7 @@ Boshlash
 Birinchi testni yarating
 ----------------------------------------------------------
 
-``test_sample.py`` nomli yangi fayl yarating, u funksiya va testni o‘z ichiga oladi:
+``test_sample.py`` nomli yangi fayl yarating, u funksiya va testni o'z ichiga olsin:
 
 .. code-block:: python
 
@@ -66,18 +66,18 @@ Testni ishga tushiring:
     FAILED test_sample.py::test_answer - assert 4 == 5
     ============================ 1 failed in 0.12s =============================
 
-``[100%]`` barcha test holatlarini ishga tushirish jarayonidagi umumiy progressni bildiradi. Test yakunlangandan so‘ng, pytest ``func(3)`` ``5`` qiymatini qaytarmagani uchun muvaffaqiyatsizlik hisoboti ko‘rsatadi.
+``[100%]`` barcha test holatlarini ishga tushirish jarayonidagi umumiy progressni bildiradi. Test yakunlangandan so'ng, pytest ``func(3)`` ``5`` qiymatini qaytarmagani uchun muvaffaqiyatsizlik hisobotini ko'rsatadi.
 
 .. note::
 
-    Test natijalarini tasdiqlash uchun ``assert`` bayonotidan foydalanishingiz mumkin. pytest’ning :ref:`Ilg‘or tasdiq introspektsiyasi <python:assert>` ifoda orasidagi qiymatlarni aqlli tarzda hisobot qiladi va bu orqali :ref:`JUnit usullarining ko‘plab nomlaridan <testcase-objects>` foydalanishdan qochishingiz mumkin.
+    Test natijalarini tasdiqlash uchun ``assert`` bayonotidan foydalanishingiz mumkin. pytest'ning :ref:`Ilg'or tasdiq introspektsiyasi <python:assert>` xususiyati ifodalardagi qiymatlarni aqlli tarzda hisobot qiladi, bu esa :ref:`JUnit usullarining ko'plab nomlaridan <testcase-objects>` foydalanishni talab qilmasligiga yordam beradi.
 
 Bir nechta testlarni ishga tushirish
 ----------------------------------------------------------
 
 ``pytest`` joriy katalogdagi va uning ostidagi kataloglardagi ``test_*.py`` yoki ``*_test.py`` shaklidagi barcha fayllarni ishga tushiradi. Umuman olganda, u :ref:`standart testlarni aniqlash qoidalariga <test discovery>` amal qiladi.
 
-Ma’lum bir xatolik qayd etilganini tasdiqlash
+Ma'lum bir xatolik qayd etilganini tasdiqlash
 --------------------------------------------------------------
 
 Xatolik qayd etilishini tasdiqlash uchun :ref:`raises <assertraises>` yordamchisidan foydalaning:
@@ -119,7 +119,7 @@ Xatolik qayd etilishini tasdiqlash uchun :ref:`raises <assertraises>` yordamchis
         assert excinfo.group_contains(RuntimeError)
         assert not excinfo.group_contains(TypeError)
 
-Test funksiyasini “quiet” rejimida ishga tushiring:
+Test funksiyasini "quiet" rejimida ishga tushiring:
 
 .. code-block:: pytest
 
@@ -129,12 +129,14 @@ Test funksiyasini “quiet” rejimida ishga tushiring:
 
 .. note::
 
-    ``-q/--quiet`` flagidan foydalanish natijasida qisqa chiqish olinadi.
+    ``-q/--quiet`` flagi natijalarni qisqa ko'rsatish uchun ishlatiladi.
 
-Bir nechta testlarni class'da guruhlash
+Testlarni classlarda guruhlash
 --------------------------------------------------------------
 
-Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni class'da guruhlashni xohlashingiz mumkin. pytest buni oson qiladi:
+.. regendoc:wipe
+
+Bir nechta testlarni classda guruhlash uchun:
 
 .. code-block:: python
 
@@ -148,7 +150,7 @@ Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni class'da guruhlashni
             x = "salom"
             assert hasattr(x, "check")
 
-``pytest`` barcha ``test_`` bilan boshlanuvchi funksiyalarni aniqlaydi. Class'ni ``Test`` bilan nomlashni unutmang, aks holda class o‘tkazib yuboriladi. Modulni quyidagi buyruq orqali ishga tushiring:
+``pytest`` barcha ``test_`` bilan boshlanuvchi funksiyalarni aniqlaydi. Classni ``Test`` bilan boshlashni unutmang, aks holda class o'tkazib yuboriladi. Testni ishga tushiring:
 
 .. code-block:: pytest
 
@@ -170,22 +172,93 @@ Bir nechta testlarni ishlab chiqqaningizdan so‘ng, ularni class'da guruhlashni
     FAILED test_class.py::TestClass::test_two - AssertionError: assert False
     1 failed, 1 passed in 0.12s
 
-Testlarni class'larda guruhlash quyidagi sabablar uchun foydali bo‘lishi mumkin:
+Testlarni classlarda guruhlash quyidagi foydalarga ega:
 
- * Testlarni tashkil qilish
- * Faqat ushbu class'dagi testlar uchun fixture’lardan foydalanish
- * Belgilarni class darajasida qo‘llash va ularning barcha testlarga tatbiq qilinishi
+* Testlarni tashkil qilish
+* Faqat class darajasidagi fixturelardan foydalanish
+* Belgilarni class darajasida qo'llash
 
-Class'larda testlarni guruhlaganingizda, har bir test class'ning o‘ziga xos namunasi bilan ishlashini unutmang. Bu testlarni izolyatsiya qilishni ta’minlaydi va yomon amaliyotlarning oldini oladi.
+Har bir test uchun alohida class instansiyasi yaratiladi. Bu test izolyatsiyasini ta'minlaydi:
 
-Yana davom ettirish
+.. code-block:: python
+
+    # test_class_demo.py mazmuni
+    class TestClassDemoInstance:
+        value = 0
+
+        def test_one(self):
+            self.value = 1
+            assert self.value == 1
+
+        def test_two(self):
+            assert self.value == 1
+
+.. code-block:: pytest
+
+    $ pytest -k TestClassDemoInstance -q
+    .F                                                                   [100%]
+    ================================= FAILURES =================================
+    ______________________ TestClassDemoInstance.test_two ______________________
+
+    self = <test_class_demo.TestClassDemoInstance object at 0xdeadbeef0002>
+
+        def test_two(self):
+    >       assert self.value == 1
+    E       assert 0 == 1
+    E        +  where 0 = <test_class_demo.TestClassDemoInstance object at 0xdeadbeef0002>.value
+
+    test_class_demo.py:9: AssertionError
+    ========================= short test summary info ==========================
+    FAILED test_class_demo.py::TestClassDemoInstance::test_two - assert 0 == 1
+    1 failed, 1 passed in 0.12s
+
+Vaqtincha direktoriyalar bilan ishlash
+--------------------------------------------------------------
+
+``tmp_path`` fixture'idan foydalanish:
+
+.. code-block:: python
+
+    # test_tmp_path.py mazmuni
+    def test_needsfiles(tmp_path):
+        print(tmp_path)
+        assert 0
+
+.. code-block:: pytest
+
+    $ pytest -q test_tmp_path.py
+    F                                                                    [100%]
+    ================================= FAILURES =================================
+    _____________________________ test_needsfiles ______________________________
+
+    tmp_path = PosixPath('PYTEST_TMPDIR/test_needsfiles0')
+
+        def test_needsfiles(tmp_path):
+            print(tmp_path)
+    >       assert 0
+    E       assert 0
+
+    test_tmp_path.py:3: AssertionError
+    --------------------------- Captured stdout call ---------------------------
+    PYTEST_TMPDIR/test_needsfiles0
+    ========================= short test summary info ==========================
+    FAILED test_tmp_path.py::test_needsfiles - assert 0
+    1 failed in 0.12s
+
+Fixture'larni ko'rish:
+
+.. code-block:: bash
+
+    pytest --fixtures
+
+Davom etish uchun
 -------------------------------------
 
-Qo‘shimcha pytest manbalarini ko‘rib chiqing:
+Qo'shimcha manbalar:
 
-* ":ref:`usage`" - buyruqlar misollari uchun
-* ":ref:`existingtestsuite`" - mavjud testlar bilan ishlash uchun
-* ":ref:`mark`" - ``pytest.mark`` mexanizmi haqida
-* ":ref:`fixtures`" - testlaringiz uchun funktsional asosni ta’minlash
-* ":ref:`plugins`" - plaginlarni boshqarish va yozish uchun
-* ":ref:`goodpractices`" - virtualenv va testlarni tashkil qilish
+* :ref:`usage` - buyruq satri misollari
+* :ref:`existingtestsuite` - mavjud testlar bilan ishlash
+* :ref:`mark` - belgilash mexanizmlari
+* :ref:`fixtures` - resurslarni boshqarish
+* :ref:`plugins` - plaginlar bilan ishlash
+* :ref:`goodpractices` - yaxshi amaliyotlar

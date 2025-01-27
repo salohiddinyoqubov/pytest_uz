@@ -1,145 +1,134 @@
-History
-=======
+Tarix
+=====
 
-pytest has a long and interesting history. The `first commit
-<https://github.com/pytest-dev/pytest/commit/5992a8ef21424d7571305a8d7e2a3431ee7e1e23>`__
-in this repository is from January 2007, and even that commit alone already
-tells a lot: The repository originally was from the :pypi:`py`
-library (later split off to pytest), and it
-originally was a SVN revision, migrated to Mercurial, and finally migrated to
-git.
+pytest uzun va qiziqarli tarixga ega. Ushbu repozitoriyadagi `birinchi
+commit <https://github.com/pytest-dev/pytest/commit/5992a8ef21424d7571305a8d7e2a3431ee7e1e23>`__
+2007-yil yanvar oyiga tegishli. Bu commit ham oʻzida koʻp maʼlumotni
+saqlaydi: Repozitoriy dastlab :pypi:`py` kutubxonasi (keyinchalik
+pytestga ajratilgan) uchun yaratilgan va dastlab SVN, keyin Mercurial,
+oxir-oqibat gitga koʻchirilgan.
 
-However, the commit says “create the new development trunk” and is
-already quite big: *435 files changed, 58640 insertions(+)*. This is because
-pytest originally was born as part of `PyPy <https://www.pypy.org/>`__, to make
-it easier to write tests for it. Here's how it evolved from there to its own
-project:
+Commitda “yangi rivojlanish trunkini yaratish” deyilgan va hajmi katta:
+*435 ta fayl oʻzgartirilgan, 58640 qator qoʻshilgan*. Buning sababi,
+pytest dastlab `PyPy <https://www.pypy.org/>`__ loyihasi tarkibida uning
+testlarini yozishni osonlashtirish uchun yaratilgan. Mana uning mustaqil
+loyihaga aylanish tarixi:
 
+-  2002-yil oxiri / 2003-yil boshida `PyPy paydo
+   boʻldi <https://morepypy.blogspot.com/2018/09/the-first-15-years-of-pypy.html>`__.
 
--  Late 2002 / early 2003, `PyPy was
-   born <https://morepypy.blogspot.com/2018/09/the-first-15-years-of-pypy.html>`__.
--  Like that blog post mentioned, from very early on, there was a big
-   focus on testing. There were various ``testsupport`` files on top of
-   unittest.py, and as early as June 2003, Holger Krekel (:user:`hpk42`)
-   `refactored <https://mail.python.org/pipermail/pypy-dev/2003-June/000787.html>`__
-   its test framework to clean things up (``pypy.tool.test``, but still
-   on top of ``unittest.py``, with nothing pytest-like yet).
--  In December 2003, there was `another
-   iteration <https://foss.heptapod.net/pypy/pypy/-/commit/02752373e1b29d89c6bb0a97e5f940caa22bdd63>`__
-   at improving their testing situation, by Stefan Schwarzer, called
-   ``pypy.tool.newtest``.
--  However, it didn’t seem to be around for long, as around June/July
-   2004, efforts started on a thing called ``utest``, offering plain
-   assertions. This seems like the start of something pytest-like, but
-   unfortunately, it's unclear where the test runner's code was at the time.
-   The closest thing still around is `this
-   file <https://foss.heptapod.net/pypy/pypy/-/commit/0735f9ed287ec20950a7dd0a16fc10810d4f6847>`__,
-   but that doesn’t seem like a complete test runner at all. What can be seen
-   is that there were `various
-   efforts <https://foss.heptapod.net/pypy/pypy/-/commits/branch/default?utf8=%E2%9C%93&search=utest>`__
-   by Laura Creighton and Samuele Pedroni (:user:`pedronis`) at automatically
-   converting existing tests to the new ``utest`` framework.
--  Around the same time, for Europython 2004, @hpk42 `started a
-   project <http://web.archive.org/web/20041020215353/http://codespeak.net/svn/user/hpk/talks/std-talk.txt>`__
-   originally called “std”, intended to be a “complementary standard
-   library” - already laying out the principles behind what later became
-   pytest:
+-  Blog postda aytilganidek, testlashga dastlab eʼtibor katta edi.
+   ``unittest.py`` ustida turli ``testsupport`` fayllari mavjud edi.
+   2003-yil iyun oyida Holger Krekel (:user:`hpk42`) `test frameworkini
+   qayta
+   tuzdi <https://mail.python.org/pipermail/pypy-dev/2003-June/000787.html>`__
+   (``pypy.tool.test``, lekin hali ``unittest.py`` asosida).
 
-       -  current “batteries included” are very useful, but
+-  2003-yil dekabrda Stefan Schwarzer tomonidan ``pypy.tool.newtest``
+   deb nomlangan `yana bir
+   takomillashtirish <https://foss.heptapod.net/pypy/pypy/-/commit/02752373e1b29d89c6bb0a97e5f940caa22bdd63>`__
+   amalga oshirildi.
 
-          -  some of them are written in a pretty much java-like style,
-             especially the unittest-framework
-          -  […]
-          -  the best API is one that doesn’t exist
+-  Biroq, u uzoq yashamadi. 2004-yil iyun/iyul oylarida ``utest``
+   loyihasi boshlandi, oddiy assertlarni taklif qiladi. Bu pytestga
+   oʻxshash narsaning boshlanishi boʻlishi mumkin edi, lekin test runner
+   kodi aniq emas. Hozirgacha saqlanib qolgan `bu
+   fayl <https://foss.heptapod.net/pypy/pypy/-/commit/0735f9ed287ec20950a7dd0a16fc10810d4f6847>`__
+   toʻliq test runner emas. Laura Creighton va Samuele Pedroni
+   (:user:`pedronis`) mavjud testlarni ``utest`` frameworkiga avtomatik
+   oʻtkazishga urinishlari
+   `koʻrinadi <https://foss.heptapod.net/pypy/pypy/-/commits/branch/default?utf8=%E2%9C%93&search=utest>`__.
 
-       […]
+-  Xuddi shu vaqtda, Europython 2004 uchun @hpk42 `“std” deb nomlangan
+   loyihani
+   boshladi <http://web.archive.org/web/20041020215353/http://codespeak.net/svn/user/hpk/talks/std-talk.txt>`__.
+   Bu loyiha keyinchalik pytestga aylangan tamoyillarni belgilab berdi:
 
-       -  a testing package should require as few boilerplate code as
-          possible and offer much flexibility
-       -  it should provide premium quality tracebacks and debugging aid
+      -  Hozirgi “batareyalar bilan birga” foydali, lekin
 
-       […]
+         -  Ularning baʼzilari, ayniqsa unittest-framework, Java
+            uslubida yozilgan
+         -  Eng yaxshi API — mavjud boʻlmagan API
 
-       -  first of all … forget about limited “assertXYZ APIs” and use the
-          real thing, e.g.::
+      […]
 
-              assert x == y
+      -  Test paketi minimal shablon kodni talab qilishi va
+         moslashuvchan boʻlishi kerak
+      -  Yuqori sifatli tracebacklar va debug qoʻllab-quvvatlashni
+         taʼminlashi kerak
 
-       -  this works with plain python but you get unhelpful “assertion
-          failed” errors with no information
+      […]
 
-       -  std.utest (magic!) actually reinterprets the assertion expression
-          and offers detailed information about underlying values
+      -  Birinchi navbatda… “assertXYZ API” cheklovlarini unutib,
+         haqiqiy ``assert``\ dan foydalaning:
 
--  In September 2004, the ``py-dev`` mailinglist gets born, which `is
-   now <https://mail.python.org/pipermail/pytest-dev/>`__ ``pytest-dev``,
-   but thankfully with all the original archives still intact.
+         ::
 
--  Around September/October 2004, the ``std`` project `was renamed
-   <https://mail.python.org/pipermail/pypy-dev/2004-September/001565.html>`__ to
-   ``py`` and ``std.utest`` became ``py.test``. This is also the first time the
-   `entire source
-   code <https://foss.heptapod.net/pypy/pypy/-/commit/42cf50c412026028e20acd23d518bd92e623ac11>`__,
-   seems to be available, with much of the API still being around today:
+            assert x == y
 
-   -  ``py.path.local``, which is being phased out of pytest (in favour of
-      pathlib) some 16-17 years later
-   -  The idea of the collection tree, including ``Collector``,
-      ``FSCollector``, ``Directory``, ``PyCollector``, ``Module``,
-      ``Class``
-   -  Arguments like ``-x`` / ``--exitfirst``, ``-l`` /
-      ``--showlocals``, ``--fulltrace``, ``--pdb``, ``-S`` /
-      ``--nocapture`` (``-s`` / ``--capture=off`` today),
-      ``--collectonly`` (``--collect-only`` today)
+      -  Bu oddiy Python bilan ishlaydi, lekin maʼlumotsiz “assertion
+         failed” xatolari beradi
 
--  In the same month, the ``py`` library `gets split off
-   <https://foss.heptapod.net/pypy/pypy/-/commit/6bdafe9203ad92eb259270b267189141c53bce33>`__
-   from ``PyPy``
+      -  std.utest (sehrli!) assertion ifodasini qayta talqin qiladi va
+         qiymatlar haqida batafsil maʼlumot beradi
 
--  It seemed to get rather quiet for a while, and little seemed to happen
-   between October 2004 (removing ``py`` from PyPy) and January
-   2007 (first commit in the now-pytest repository). However, there were
-   various discussions about features/ideas on the mailinglist, and
-   :pypi:`a couple of releases <py/0.8.0-alpha2/#history>` every
-   couple of months:
+-  2004-yil sentyabrda ``py-dev`` mailing listi yaratildi, hozir
+   `pytest-dev <https://mail.python.org/pipermail/pytest-dev/>`__ deb
+   nomlanadi.
 
-   -  March 2006: py 0.8.0-alpha2
-   -  May 2007: py 0.9.0
-   -  March 2008: py 0.9.1 (first release to be found `in the pytest
-      changelog <https://github.com/pytest-dev/pytest/blob/main/doc/en/changelog.rst#091>`__!)
-   -  August 2008: py 0.9.2
+-  2004-yil sentyabr/oktyabr oylarida ``std`` loyihasi `“py” deb
+   oʻzgartirildi <https://mail.python.org/pipermail/pypy-dev/2004-September/001565.html>`__,
+   ``std.utest`` esa ``py.test``\ ga aylandi. Bu ham `toʻliq manba
+   kodi <https://foss.heptapod.net/pypy/pypy/-/commit/42cf50c412026028e20acd23d518bd92e623ac11>`__
+   birinchi marta paydo boʻlgan vaqt:
 
--  In August 2009, py 1.0.0 was released, `introducing a lot of
-   fundamental
-   features <https://holgerkrekel.net/2009/08/04/pylib-1-0-0-released-the-testing-with-python-innovations-continue/>`__:
+   -  ``py.path.local`` (hozir pytestda pathlibga almashtirilmoqda)
+   -  Toʻplam daraxti gʻoyasi: ``Collector``, ``FSCollector``,
+      ``Directory``, ``PyCollector``, ``Module``, ``Class``
+   -  Argumentlar: ``-x`` / ``--exitfirst``, ``-l`` / ``--showlocals``,
+      ``--fulltrace``, ``--pdb``, ``-S`` / ``--nocapture`` (hozir ``-s``
+      / ``--capture=off``), ``--collectonly`` (hozir ``--collect-only``)
+
+-  Xuddi shu oyda, ``py`` kutubxonasi `PyPydan
+   ajratildi <https://foss.heptapod.net/pypy/pypy/-/commit/6bdafe9203ad92eb259270b267189141c53bce33>`__.
+
+-  2004-yil oktyabrdan (pyni PyPydan olib tashlash) 2007-yil yanvargacha
+   (hozirgi pytest repozitoriyasidagi birinchi commit) hech qanday
+   faollik koʻrinmadi. Biroq, mailing listda munozaralar boʻlib, `bir
+   necha relizlar <py/0.8.0-alpha2/#history>`__ chiqdi:
+
+   -  2006-yil mart: py 0.8.0-alpha2
+   -  2007-yil may: py 0.9.0
+   -  2008-yil mart: py 0.9.1 (`pytest
+      changelogida <https://github.com/pytest-dev/pytest/blob/main/doc/en/changelog.rst#091>`__
+      topilgan birinchi reliz)
+   -  2008-yil avgust: py 0.9.2
+
+-  2009-yil avgustda py 1.0.0 chiqdi, `asosiy xususiyatlar
+   kiritildi <https://holgerkrekel.net/2009/08/04/pylib-1-0-0-released-the-testing-with-python-innovations-continue/>`__:
 
    -  funcargs/fixtures
-   -  A `plugin
-      architecture <http://web.archive.org/web/20090629032718/https://codespeak.net/py/dist/test/extend.html>`__
-      which still looks very much the same today!
-   -  Various `default
-      plugins <http://web.archive.org/web/20091005181132/https://codespeak.net/py/dist/test/plugin/index.html>`__,
-      including
+   -  `Plugin
+      arxitekturasi <http://web.archive.org/web/20090629032718/https://codespeak.net/py/dist/test/extend.html>`__
+      (hozirgacha oʻxshash)
+   -  `Standart
+      pluginlar <http://web.archive.org/web/20091005181132/https://codespeak.net/py/dist/test/plugin/index.html>`__,
+      masalan,
       `monkeypatch <http://web.archive.org/web/20091012022829/http://codespeak.net/py/dist/test/plugin/how-to/monkeypatch.html>`__
 
--  Even back there, the
-   `FAQ <http://web.archive.org/web/20091005222413/http://codespeak.net/py/dist/faq.html>`__
-   said:
+-  Hatto
+   `FAQ <http://web.archive.org/web/20091005222413/http://codespeak.net/py/dist/faq.html>`__\ da
+   aytilgan:
 
-       Clearly, [a second standard library] was ambitious and the naming has
-       maybe haunted the project rather than helping it. There may be a
-       project name change and possibly a split up into different projects
-       sometime.
+      “std” nomi loyihaga zarar yetkazgan boʻlishi mumkin. Loyiha nomi
+      oʻzgartirilishi yoki boʻlinishi mumkin.
 
-   and that finally happened in November 2010, when pytest 2.0.0 `was
-   released <https://mail.python.org/pipermail/pytest-dev/2010-November/001687.html>`__
-   as a package separate from ``py`` (but still called ``py.test``).
+   Bu 2010-yil noyabrda pytest 2.0.0
+   `chiqarilganda <https://mail.python.org/pipermail/pytest-dev/2010-November/001687.html>`__
+   amalga oshdi (``py.test`` nomi saqlangan).
 
--  In August 2016, pytest 3.0.0 :std:ref:`was released <release-3.0.0>`,
-   which adds ``pytest`` (rather than ``py.test``) as the recommended
-   command-line entry point
+-  2016-yil avgustda pytest 3.0.0 chiqdi, unda ``pytest`` (oldingi
+   ``py.test`` oʻrniga) asosiy buyruq sifatida tavsiya etildi.
 
-Due to this history, it's difficult to answer the question when pytest was started.
-It depends what point should really be seen as the start of it all. One
-possible interpretation is to  pick Europython 2004, i.e. around June/July
-2004.
+pytestning boshlanish sanasini aniqlash qiyin. Buning uchun Europython
+2004 (2004-yil iyun/iyul) boshlangʻich nuqta deb hisoblash mumkin.
