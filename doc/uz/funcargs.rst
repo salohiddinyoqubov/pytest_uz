@@ -1,12 +1,12 @@
 
 =======================================================
-funcargs: resource injection and parametrization
+funcargs: resurslarni in'ektsiya qilish va parametrlash
 =======================================================
 
-pytest-2.3 introduces major refinements to fixture management
-of which the funcarg mechanism introduced with pytest-2.0 remains
-a core part.  The documentation has been refactored as well
-and you can read on here:
+pytest-2.3 fixture boshqaruviga muhim takomillashtirishlarni joriy qiladi.
+Bunda pytest-2.0 versiyasi bilan kirib kelgan funcarg mexanizmi
+asosiy qismi bo'lib qolmoqda. Qo'llanma ham qayta ishlandi va siz
+bu yerda quyidagilarni o'qishingiz mumkin:
 
 - :ref:`fixtures`
 - :ref:`parametrize`
